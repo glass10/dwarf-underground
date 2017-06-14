@@ -7,8 +7,13 @@ class Article extends Component{
     constructor(){
         super()
         this.state = {
-            showComments: true
+            showComments: false
         }
+    }
+
+    toggleComments(ev){
+        ev.preventDefault();
+        this.setState({ showComments: !this.state.showComments});
     }
     render(){
         return(
@@ -18,7 +23,7 @@ class Article extends Component{
             <Body />
 
             <div className="article-links">
-            <a className="article-link" href="#">
+            <a className="article-link" href="#" onClick={this.toggleComments.bind(this)}>
                 <i className="fa fa-comments-o"></i>
                 <span className="article-link-text">Comments</span>
             </a>
