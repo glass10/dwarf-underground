@@ -4,12 +4,19 @@ import Author from './author'
 import Body from './body'
 
 class Article extends Component{
+    constructor(){
+        super()
+        this.state = {
+            showComments: true
+        }
+    }
     render(){
         return(
         <div className="large-8 medium-12 columns article">
             <h2 className="article-title">Gold Madness - Fact or Fiction?</h2>
             <Author />
             <Body />
+
             <div className="article-links">
             <a className="article-link" href="#">
                 <i className="fa fa-comments-o"></i>
@@ -20,6 +27,7 @@ class Article extends Component{
                 <span className="article-link-text">Share Post</span>
             </a>
             </div>
+            {this.state.showComments ? <p>Comments!</p>:null}
         </div>
         )
     }
