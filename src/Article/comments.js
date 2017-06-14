@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './comments.css'
 
 class Comments extends Component{
     constructor(){
@@ -23,7 +24,7 @@ class Comments extends Component{
        const state = {...this.state};
        state.comments.push(comment);
        state.comment = "";
-       this.setState(state, () => console.log(this.state));
+       this.setState(state);
     }
     render(){
         return(
@@ -34,9 +35,18 @@ class Comments extends Component{
                     placeholder="Enter Comment">
                 </textarea>
                 <button onClick={this.addComment} className="button">Submit Comment</button>
+                {this.state.comments.map((comment, i) => <Comment comment={comment} key={i}/>)}
             </div>
         )
     }
+}
+
+function Comment(props){
+    return(
+        <div className="comment">
+            <div>{props.comment.text}</div>
+        </div>
+    )
 }
 
 export default Comments
