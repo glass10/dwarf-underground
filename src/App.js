@@ -18,6 +18,7 @@ class App extends Component {
           <Ad />
           <OtherArticles />
         </main>
+        
         <Footer />
       </div>
     );
