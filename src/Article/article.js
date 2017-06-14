@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './article.css';
 import Author from './author'
 import Body from './body'
+import Comments from './comments'
 
 class Article extends Component{
     constructor(){
@@ -32,7 +33,7 @@ class Article extends Component{
                 <span className="article-link-text">Share Post</span>
             </a>
             </div>
-            {this.state.showComments ? <p>Comments!</p>:null}
+            {this.state.showComments ? <Comments />:null}
         </div>
         )
     }
